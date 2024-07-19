@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+    div(class="mainCont")
+        h1=title
+        form(method="POST")
+            div.form-group 
+                label(for="name") Name: 
+                input#name.form-control(type="text" name="name" placeholder="enter your name" required)
+            div.form-group
+                label(for="message") Message:
+                textarea#message.form-control(name="message" placeholder="enter your message here" required)
+            button.btn.btn-primary(type="submit") Submit

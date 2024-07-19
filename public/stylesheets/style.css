@@ -1,8 +1,36 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.navBar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navBar > ul {
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.mainCont {
+  display: block;
+}
+
+.mainCont > ul {
+  list-style: none;
+}
+
+.message {
+  border: 2px black solid;
+  margin-bottom: 2px;
 }
