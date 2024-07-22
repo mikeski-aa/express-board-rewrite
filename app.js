@@ -3,10 +3,25 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+require("dotenv").config();
+
+const { neon } = require("@neondatabase/serverless");
+
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 var indexRouter = require("./routes/index");
 
 var app = express();
+
+// DB CONNECT
+const sql = neon(
+  `postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}?sslmode=require`
+);
+async function getPgVersion() {
+  const result = await sql`SELECT version()`;
+  console.log(result[0]);
+}
+getPgVersion();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
